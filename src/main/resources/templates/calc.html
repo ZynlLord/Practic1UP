@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Калькулятор</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2a2a2a;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .calculator-container {
+            background-color: #4CAF50;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #fff;
+        }
+
+        form {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        input[type="text"],
+        select,
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 0;
+            font-size: 16px;
+            background-color: #ccc;
+            color: #000;
+        }
+
+        select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-color: #ccc;
+            background-image: linear-gradient(45deg, transparent 50%, #4CAF50 50%),
+            linear-gradient(135deg, #4CAF50 50%, transparent 50%);
+            background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px);
+            background-size: 5px 5px, 5px 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+<div class="calculator-container">
+    <h1>Калькулятор</h1>
+    <form action="/calculate" method="POST">
+        <div style="display: flex; flex-direction: column;">
+            <label for="first_number">Первое число</label>
+            <input type="text" id="first_number" name="first_number" required>
+
+            <label for="second_number">Второе число</label>
+            <input type="text" id="second_number" name="second_number" required>
+        </div>
+
+        <label for="operation">Выберите операцию</label>
+        <select id="operation" name="operation">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+            <option value="%">%</option>
+        </select>
+
+        <input type="submit" value="Получить ответ">
+    </form>
+</div>
+</body>
+</html>

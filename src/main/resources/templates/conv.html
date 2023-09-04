@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Конвертер</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2a2a2a; /* Темно-серый цвет фона */
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        form {
+            margin-top: 20px;
+            background-color: #4CAF50; /* Зеленый цвет формы */
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        input[type="text"],
+        select,
+        input[type="submit"],
+        span {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 16px;
+            background-color: #ccc; /* Серый цвет фона */
+            color: #000; /* Черный цвет текста */
+        }
+
+        select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-color: #ccc; /* Серый цвет фона */
+            background-image: linear-gradient(45deg, transparent 50%, #ccc 50%),
+            linear-gradient(135deg, #ccc 50%, transparent 50%);
+            background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px);
+            background-size: 5px 5px, 5px 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #3498db; /* Синий цвет фона кнопки */
+            color: #fff; /* Белый цвет текста кнопки */
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #2980b9; /* Синий цвет фона кнопки при наведении */
+        }
+
+        span {
+            color: #000; /* Черный цвет текста */
+        }
+    </style>
+</head>
+<body>
+<form action="/convert" method="post">
+    <input type="text" name="current_amount" placeholder="У меня есть" required>
+    <select name="currency1">
+        <option value="RUB">Рубль</option>
+        <option value="USD">Доллар</option>
+        <option value="EUR">Евро</option>
+        <option value="CNY">Юань</option>
+        <option value="SEK">Крона</option>
+    </select>
+    <input type="submit" value="Перевести">
+    <span th:text="${await_amount}"></span>
+    <select name="currency2">
+        <option value="RUB">Рубль</option>
+        <option value="USD">Доллар</option>
+        <option value="EUR">Евро</option>
+        <option value="CNY">Юань</option>
+        <option value="SEK">Крона</option>
+    </select>
+</form>
+</body>
+</html>
